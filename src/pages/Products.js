@@ -54,7 +54,7 @@ export function Products() {
                                 <input type="checkbox" className="delete-checkbox" onClick={() => select(prod.id)}></input>
                             </form>
                             <span>{prod.sku}</span>
-                            <span>{prod.name}</span>
+                            {prod.name}
                             <span>{prod.price},00 $</span>
                             <span>{prod.attribute}: {prod.value} {prod.unit}</span>
                         </div>
