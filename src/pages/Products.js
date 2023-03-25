@@ -51,7 +51,7 @@ export function Products() {
                     products.map(prod => (
                         <div key={prod.id}>
                             <form>
-                                <input type="checkbox" className=".delete-checkbox" onClick={() => select(prod.id)}></input>
+                                <input type="checkbox" class="delete-checkbox" onClick={() => select(prod.id)}></input>
                             </form>
                             <span>{prod.sku}</span>
                             <span>{prod.name}</span>
