@@ -58,8 +58,7 @@ export function Products() {
                             <span>{prod.price},00 $</span>
                             <span>{prod.attribute}: {prod.value} {prod.unit}</span>
                         </div>
-                    )) 
-                    
+                    ))        
                 }
             </Container>}
             <Footer>
