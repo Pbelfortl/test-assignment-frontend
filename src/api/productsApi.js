@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://test-assignment-pablo.000webhostapp.com/products"
+const baseUrl = "https://scandiwebtestpablo.shop/"
 
 export async function getProducts () {
     const response = await axios.get(`${baseUrl}`)
@@ -8,7 +8,7 @@ export async function getProducts () {
 }
 
 export async function massDelete (productIds) {
-    const response = await axios.delete(`${baseUrl}`, productIds)
+    const response = await axios.patch(`${baseUrl}`, productIds)
     return response.data
 }
 

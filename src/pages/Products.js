@@ -2,58 +2,69 @@ import { useEffect, useState } from "react"
 import styled from "styled-components"
 import { getProducts, massDelete } from "../api/productsApi"
 import { useNavigate } from "react-router-dom"
+import loading from "../img/Pulse.gif"
 
-export function Products () {
+export function Products() {
 
     const navigate = useNavigate();
     const [products, setProducts] = useState();
     let selectedProducts = []
- 
+    const [refresh, setRefresh] = useState(false)
+
     useEffect(() => {
         getProducts()
-            .then(ans => setProducts(ans))
+            .then(ans => {
+                setProducts(ans)})
             .catch(ans => console.log(ans))
-    },[])
+    }, [refresh])
 
-    function select (id) {
-        if (selectedProducts.includes(id)){
+    function select(id) {
+        if (selectedProducts.includes(id)) {
             selectedProducts.splice(selectedProducts.indexOf(id), 1)
         } else {
             selectedProducts.push(id)
         }
-        console.log(selectedProducts)
     }
 
-    function deleteProducts (prods) {
+    function deleteProducts() {
+        setProducts()
         massDelete(selectedProducts)
-            .then (ans => selectedProducts = [])
-            .catch(ans => alert ("It was not possible to delete items"))
+            .then(ans => {
+                setRefresh(!refresh)
+                selectedProducts = []})
+            .catch(ans => {
+                selectedProducts = []
+                alert("It was not possible to delete items")})
     }
 
     return (
         <>
-        <Header>
-            <span>Product List</span>
-            <div>
-                <button onClick={() => navigate("/add-product")}>ADD</button>
-                <button onClick={() => deleteProducts(selectedProducts)}>MASS DELETE</button>
-            </div>
-        </Header>
-        {<Container>
-            {products &&
-                products.map(prod => (                    
-                    <div key={prod.id}>
-                        <form>
-                            <input type="checkbox" onClick={() => select(prod.id)}></input>
-                        </form>
-                        <span>{prod.sku}</span>
-                        <span>{prod.name}</span>
-                        <span>{prod.price},00$</span>
-                        <span>{prod.attribute}: {prod.value} {prod.unit}</span>
-                    </div>
-                ))
-            }
-        </Container>}
+            <Header>
+                <span>Product List</span>
+                <div>
+                    <button onClick={() => navigate("/add-product")}>ADD</button>
+                    <button onClick={() => deleteProducts(selectedProducts)}>MASS DELETE</button>
+                </div>
+            </Header>
+            {<Container>
+                {products ?
+                    products.map(prod => (
+                        <div key={prod.id}>
+                            <form>
+                                <input type="checkbox" className="delete-checkbox" onClick={() => select(prod.id)}></input>
+                            </form>
+                            <span>{prod.sku}</span>
+                            <span>{prod.name}</span>
+                            <span>{prod.price},00 $</span>
+                            <span>{prod.attribute}: {prod.value} {prod.unit}</span>
+                        </div>
+                    )) :
+                    <img alt="Loading" src={loading}/>
+                }
+            </Container>}
+            <Footer>
+                <span>Scandiweb test assignment</span>
+            </Footer>
         </>
     )
 }
@@ -61,15 +72,15 @@ export function Products () {
 export const Header = styled.div`
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
-    padding-top: 90px;
+    padding-top: 60px;
     font-size: 32px;
     display: flex;
     justify-content: space-between;
     align-items:center;
-    width: 80vw;
-    height: 150px;
-    background-color: aqua;
+    width: 70vw;
+    height: 130px;
     border-bottom: 2px black solid;
+    padding-left: 20px;
     button{
         height: 30px;
         font-size: large;
@@ -81,17 +92,20 @@ export const Header = styled.div`
     }
 `
 export const Container = styled.div`
-    width: 80vw;
     background-color: white;
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     padding-top: 50px;
+    width: 70vw;
     div{
         font-size: 18px;
         position: relative;
         display: flex;
         flex-direction: column;
-        margin: 10px;
-        width: 250px;
+        margin: 15px;
+        width: 280px;
         height: 200px;
         justify-content: center;
         align-items: center;
@@ -104,5 +118,21 @@ export const Container = styled.div`
             left: 10px;
         }
     }
+    span{
+        margin: 3px;
+    }
+    
+`
 
+export const Footer = styled.footer`
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    align-items: center;
+    height: 60px;
+    width: 70vw;
+    position: fixed;
+    bottom: 0px;
+    border-top: solid black 2px; 
 `
