@@ -47,7 +47,7 @@ export function Products() {
                 </div>
             </Header>
             {<Container>
-                {products ?
+                {products &&
                     products.map(prod => (
                         <div key={prod.id}>
                             <form>
@@ -58,8 +58,8 @@ export function Products() {
                             <span>{prod.price},00 $</span>
                             <span>{prod.attribute}: {prod.value} {prod.unit}</span>
                         </div>
-                    )) :
-                    <img alt="Loading" src={loading}/>
+                    )) 
+                    
                 }
             </Container>}
             <Footer>
