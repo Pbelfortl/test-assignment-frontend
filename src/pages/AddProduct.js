@@ -10,7 +10,7 @@ export function AddProduct() {
     const [sku, setSku] = useState();
     const [name, setName] = useState();
     const [price, setPrice] = useState();
-    const [type, setType] = useState("2");
+    const [type, setType] = useState("1");
     const [attValue, setAttValue] = useState();
     const [height, setHeight] = useState()
     const [width, setWidth] = useState();
@@ -71,7 +71,7 @@ export function AddProduct() {
                             <>
                                 <div>
                                     <label htmlFor="size">Size (MB)</label>
-                                    <input type="number" id="size" placeholder="Size" required onChange={e => setAttValue(e.target.value)} />
+                                    <input type="number" id="size" placeholder="Size" required onChange={e => setAttValue(`${e.target.value} MB`)} />
                                 </div>
                                 <span>Please, provide size in Mb.</span>
                             </>
@@ -80,7 +80,7 @@ export function AddProduct() {
                             <>
                                 <div>
                                     <label htmlFor="weight">weight (KG)</label>
-                                    <input type="number" id="weight" placeholder="weight" required onChange={e => setAttValue(e.target.value)} />
+                                    <input type="number" id="weight" placeholder="weight" required onChange={e => setAttValue(`${e.target.value}KG`)} />
                                 </div>
                                 <span>Please, provide weight in Kg.</span>
                             </>
