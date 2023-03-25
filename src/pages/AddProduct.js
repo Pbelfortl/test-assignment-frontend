@@ -10,7 +10,7 @@ export function AddProduct() {
     const [sku, setSku] = useState();
     const [name, setName] = useState();
     const [price, setPrice] = useState();
-    const [type, setType] = useState("3");
+    const [type, setType] = useState();
     const [attValue, setAttValue] = useState();
     const [height, setHeight] = useState()
     const [width, setWidth] = useState();
