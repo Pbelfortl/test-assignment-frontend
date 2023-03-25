@@ -162,7 +162,7 @@ const Form = styled.form`
         padding-left: 10px;
     }
     div{
-        margin: 25px;
+        margin: 20px;
         display: flex;
         width: inherit;
         align-items: center;
