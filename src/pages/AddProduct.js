@@ -10,7 +10,7 @@ export function AddProduct() {
     const [sku, setSku] = useState();
     const [name, setName] = useState();
     const [price, setPrice] = useState();
-    const [type, setType] = useState("2");
+    const [type, setType] = useState("3");
     const [attValue, setAttValue] = useState();
     const [height, setHeight] = useState()
     const [width, setWidth] = useState();
@@ -62,10 +62,10 @@ export function AddProduct() {
                         </div>
                         <div>
                             <label htmlFor="productType">Type switcher</label>
-                            <select id="productType">
-                                <option id="DVD" value="1" onSelect={setType(e.target.value)}>DVD</option>
-                                <option id="Book" value="2" onSelect={setType(e.target.value)}>Book</option>
-                                <option id="Furniture" value="3" onSelect={setType(e.target.value)}>Furniture</option>
+                            <select id="productType" onChange={e => setType(e.target.value)}>
+                                <option id="DVD" value="1">DVD</option>
+                                <option id="Book" value="2">Book</option>
+                                <option id="Furniture" value="3">Furniture</option>
                             </select>
                         </div>
                         {(type === "1") &&
