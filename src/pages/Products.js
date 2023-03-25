@@ -105,7 +105,7 @@ export const Container = styled.div`
         display: flex;
         flex-direction: column;
         margin: 15px;
-        width: 280px;
+        width: 260px;
         height: 200px;
         justify-content: center;
         align-items: center;
