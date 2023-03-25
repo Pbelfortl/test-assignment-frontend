@@ -51,10 +51,10 @@ export function Products() {
                     products.map(prod => (
                         <div key={prod.id}>
                             <form>
-                                <input type="checkbox" className="delete-checkbox" onClick={() => select(prod.id)}></input>
+                                <input type="checkbox" className=".delete-checkbox" onClick={() => select(prod.id)}></input>
                             </form>
                             <span>{prod.sku}</span>
-                            <div>{prod.name}</div>
+                            <span>{prod.name}</span>
                             <span>{prod.price},00 $</span>
                             <span>{prod.attribute}: {prod.value} {prod.unit}</span>
                         </div>

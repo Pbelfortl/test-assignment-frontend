@@ -30,6 +30,7 @@ export function AddProduct() {
         await addProduct(prod)
             .then(ans => navigate("/"))
             .catch(ans => {
+                console.log(ans)
                 loading = false
                 alert("Error adding product")
             })
