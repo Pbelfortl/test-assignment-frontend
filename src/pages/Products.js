@@ -97,7 +97,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
-    padding-top: 50px;
+    padding-top: 45px;
     width: 1250px;
     div{
         font-size: 18px;
@@ -130,7 +130,7 @@ export const Footer = styled.footer`
     justify-content: center;
     background-color: white;
     align-items: center;
-    height: 60px;
+    height: 50px;
     width: 1250px;
     position: fixed;
     bottom: 0px;
