@@ -84,6 +84,7 @@ export const Header = styled.div`
         font-size: large;
         font-family: 'Courier New', Courier, monospace;
         margin-right: 15px;
+        margin-bottom: 10px;
         :hover{
             cursor: pointer;
         }
@@ -130,7 +131,7 @@ export const Footer = styled.footer`
     justify-content: center;
     background-color: white;
     align-items: center;
-    height: 50px;
+    height: 30px;
     width: 1250px;
     position: fixed;
     bottom: 0px;
