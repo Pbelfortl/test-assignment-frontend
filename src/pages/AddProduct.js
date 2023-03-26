@@ -62,10 +62,10 @@ export function AddProduct() {
                         </div>
                         <div>
                             <label htmlFor="productType">Type switcher</label>
-                            <select id="productType" onClick={e => setType(e.target.value)}>
-                                <option value="2">Book</option>
-                                <option value="1">DVD</option>
-                                <option value="3">Furniture</option>
+                            <select id="productType" onChange={e => setType(e.target.value)}>
+                                <option value="2" >Book</option>
+                                <option value="1" >DVD</option>
+                                <option value="3" >Furniture</option>
                             </select>
                         </div>
                         {(type === "1") &&
