@@ -97,7 +97,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
-    padding-top: 45px;
+    padding-top: 30px;
     width: 1250px;
     div{
         font-size: 18px;
