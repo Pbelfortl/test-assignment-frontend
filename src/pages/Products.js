@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import styled from "styled-components"
 import { getProducts, massDelete } from "../api/productsApi"
 import { useNavigate } from "react-router-dom"
-import loading from "../img/Pulse.gif"
+import loadingImg from "../img/Pulse.gif"
 
 export function Products() {
 
@@ -51,14 +51,14 @@ export function Products() {
                     products.map(prod => (
                         <div key={prod.id}>
                             <form>
-                                <input type="checkbox" class="delete-checkbox" onClick={() => select(prod.id)}></input>
+                                <input type="checkbox" className="delete-checkbox" onClick={() => select(prod.id)}></input>
                             </form>
                             <span>{prod.sku}</span>
                             <span>{prod.name}</span>
                             <span>{prod.price},00 $</span>
-                            <span>{prod.attribute}: {prod.value} {prod.unit}</span>
+                            <span>{prod.attribute}: {prod.value}</span>
                         </div>
-                    ))        
+                    )) 
                 }
             </Container>}
             <Footer>
@@ -76,7 +76,7 @@ export const Header = styled.div`
     display: flex;
     justify-content: space-between;
     align-items:center;
-    width: 70vw;
+    width: 1250px;
     height: 130px;
     border-bottom: 2px black solid;
     padding-left: 20px;
@@ -92,20 +92,22 @@ export const Header = styled.div`
 `
 export const Container = styled.div`
     background-color: white;
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     padding-top: 50px;
-    width: 70vw;
+    width: 1250px;
     div{
         font-size: 18px;
         position: relative;
         display: flex;
         flex-direction: column;
         margin: 15px;
-        width: 260px;
-        height: 200px;
+        width: 280px;
+        height: 220px;
         justify-content: center;
         align-items: center;
         border-radius: 10px;
@@ -130,7 +132,7 @@ export const Footer = styled.footer`
     background-color: white;
     align-items: center;
     height: 60px;
-    width: 70vw;
+    width: 1250px;
     position: fixed;
     bottom: 0px;
     border-top: solid black 2px; 
