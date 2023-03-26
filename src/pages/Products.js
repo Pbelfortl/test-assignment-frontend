@@ -100,6 +100,7 @@ export const Container = styled.div`
     flex-wrap: wrap;
     padding-top: 30px;
     width: 1250px;
+    margin-bottom: 50px;
     div{
         font-size: 18px;
         position: relative;
@@ -131,7 +132,7 @@ export const Footer = styled.footer`
     justify-content: center;
     background-color: white;
     align-items: center;
-    height: 30px;
+    height: 50px;
     width: 1250px;
     position: fixed;
     bottom: 0px;
