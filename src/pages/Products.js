@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import styled from "styled-components"
 import { getProducts, massDelete } from "../api/productsApi"
 import { useNavigate } from "react-router-dom"
-import loadingImg from "../img/Pulse.gif"
 
 export function Products() {
 
