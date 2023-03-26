@@ -76,7 +76,7 @@ export const Header = styled.div`
     justify-content: space-between;
     align-items:center;
     width: 1250px;
-    height: 130px;
+    height: 110px;
     border-bottom: 2px black solid;
     padding-left: 20px;
     button{
